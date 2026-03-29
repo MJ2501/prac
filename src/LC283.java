@@ -1,5 +1,12 @@
+import java.util.Arrays;
+
 public class LC283 {
-    public void moveZeroes(int[] nums) {
+
+    public static void main(String[] args) {
+        moveZeroes(new int[]{1,5,0,3,0,4});
+    }
+
+    public static void moveZeroes(int[] nums) {
         int i = -1;
         for (int k = 0; k < nums.length; k++) {
             if (nums[k] == 0) {
@@ -19,6 +26,6 @@ public class LC283 {
             }
             j++;
         }
-        System.out.println(nums.toString());
+        System.out.println(Arrays.toString(nums));
     }
 }
