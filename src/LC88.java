@@ -30,19 +30,16 @@ public class LC88 {
     }
 
     public int[] sortedMergedArrays(int[] nums1, int m, int[] nums2, int n){
-        int[] nums1Copy = new int[m];
-        for(int i=0;i<m;i++){
-            nums1Copy[i] = nums1[i];
-        }
-        int p1 = 0;
-        int p2 = 0;
-        for(int j=0; j < m+n; j++){
-            if(p2 >= n || (p1 < m && nums1Copy[p1] < nums2[p2])){
-                nums1[j] = nums1Copy[p1];
-                p1++;
+        int p1 = m-1;
+        int p2 = n-1;
+        for(int i = m+n - 1; i >= 0 ; i--){
+            if(p2 < 0) break;
+            if(p1 >= 0 && nums1[p1] > nums2[p2]){
+                nums1[i] = nums1[p1];
+                p1--;
             }else{
-                nums1[j] = nums2[p2];
-                p2++;
+                nums1[i] = nums2[p2];
+                p2--;
             }
         }
 
