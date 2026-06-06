@@ -23,13 +23,11 @@ public class LC121 {
 
     public static int maxProfit(int[] prices){
         int max = 0;
-        for(int i = 0; i < prices.length; i++){
-            for(int j = i+1; j < prices.length; j++){
-                int profit = prices[j] - prices[i];
-                if(profit > max){
-                    max = profit;
-                }
-            }
+        if(prices.length == 0) return max;
+        int min = prices[0];
+        for(int i = 1;i<prices.length; i++){
+            if(max < prices[i] - min) max = prices[i] - min;
+            if(min > prices[i]) min = prices[i];
         }
         return max;
     }
